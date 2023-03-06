@@ -15,9 +15,7 @@ __pycache__
 
 # Ignore environment files
 .env
-venv
-.venv
-.*.venv
+
 # Ignore log files
 logs/
 *.log
