@@ -1,0 +1,26 @@
+# Ignore database files
+*.sqlite3
+
+# Ignore static files
+/staticfiles
+
+# Ignore media files
+/media
+
+# Ignore temporary files
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+
+# Ignore environment files
+.env
+
+# Ignore log files
+logs/
+*.log
+
+# Ignore other miscellaneous files
+*.bak
+*.swp
+*.DS_Store
