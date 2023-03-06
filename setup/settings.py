@@ -68,7 +68,7 @@ ROOT_URLCONF = 'setup.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],rk
+        'DIRS': [], rk
 
         'APP_DIRS': True,
         'OPTIONS': {
@@ -88,10 +88,19 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+
 default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
-DATABASES = {'default': config(
-    'DATABASE_URL', default=default_dburl, cast=dburl), }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'fAIalzhFyVcS2MgDvmsL',
+        'HOST': 'containers-us-west-71.railway.app',
+        'PORT': '7146',
+    }
+}
 
 
 # Password validation
