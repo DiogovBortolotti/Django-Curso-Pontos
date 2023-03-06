@@ -28,8 +28,8 @@ SECRET_KEY = os.environ['SECRET_KEY']
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
+#DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = False
 
 # funciona so se tiver assim auteh
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'kubernetes.docker.internal']
