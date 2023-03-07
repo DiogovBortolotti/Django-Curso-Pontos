@@ -1,3 +1,0 @@
-
-python-3.10.8
-RUN apt-get install -y libmysqlclient-dev
