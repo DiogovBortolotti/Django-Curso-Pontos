@@ -18,6 +18,13 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+#from decouple import config
+
+# Lê a variável de ambiente DEBUG do arquivo .env como um booleano
+
+
+# Lê a variável de ambiente PORT do arquivo .env como um inteiro
+#PORT = config('PORT', cast=int)
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,10 +41,12 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = config('DEBUG', default=False, cast=bool)
 DEBUG = True
+#DEBUG = config('DEBUG', cast=bool)
 
 # funciona so se tiver assim auteh
 ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'kubernetes.docker.internal']
 
+DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 
 # Application definition
 
@@ -94,16 +103,12 @@ WSGI_APPLICATION = 'setup.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 
-default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
+#default_dburl = 'sqlite:///' + os.path.join(BASE_DIR, 'db.sqlite3')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'railway',
-        'USER': 'root',
-        'PASSWORD': 'fAIalzhFyVcS2MgDvmsL',
-        'HOST': 'containers-us-west-71.railway.app',
-        'PORT': '7146',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -163,4 +168,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAuthenticated',
     ],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 10,
 }

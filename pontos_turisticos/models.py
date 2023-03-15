@@ -8,6 +8,10 @@ from enderecos.models import Endereco
 # Create your models here.
 
 
+class DocIdentificacao(models.Model):
+    descricao = models.CharField(max_length=100)
+
+
 class PontoTuristico(models.Model):
     nome = models.CharField(max_length=150)
     descricao = models.TextField()
@@ -19,6 +23,9 @@ class PontoTuristico(models.Model):
         Endereco, on_delete=models.CASCADE, null=True, blank=True)
     foto = models.ImageField(upload_to='pontos_turisticos',
                              height_field=None, width_field=None, max_length=None, null=True, blank=True)
+    doc_identificacao = models.OneToOneField(
+        DocIdentificacao, on_delete=models.CASCADE, null=True, blank=True)
+
     # pip install Pillow
     # python manage.py makemigrations --empty 0006_pontoturistico_foto -- remove  para o vazio
     # python manage.py makemigrations migrate 0006_pontoturistico_foto  -- migra pacote removido do vazio
